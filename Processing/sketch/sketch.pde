@@ -5,11 +5,13 @@ import processing.serial.*;
 import processing.sound.*;
 
 int escena;
+GameController gc;
 
 
 void setup(){
   size(1280, 700);
-  escena = 0;
+  gc = new GameController();
+  escena = 1;
 }
 
 
@@ -26,4 +28,12 @@ void escena(){
   }else if (escena == 2){
     pantallaFinal();
   }  
+}
+
+void keyPressed()
+{
+   if(key == 32)
+   {
+     this.gc.jump();
+   }
 }
