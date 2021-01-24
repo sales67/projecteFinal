@@ -17,4 +17,8 @@ class GameController{
   void jump(){
    this.c.jump(); 
   } 
+  
+  public int getScore(){
+    return this.score;
+  }
 }
