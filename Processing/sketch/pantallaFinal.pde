@@ -7,8 +7,7 @@ void pantallaFinal(PImage bgImg, PImage plataforma, PImage botoImg, PFont myFont
 }
 
 void opacitat(){
-  tint(100);
-  fill(128, 128, 128);
+  fill(128, 128, 128, 60);
   noStroke();
   beginShape();
   vertex(0, 0);
@@ -45,8 +44,12 @@ void pintarScore(PFont myFont, int score) {
 }
 
 void backMove(PImage bgImg, float x1, float x2) {
-  image(bgImg, 0, x1, width, height);
-  image(bgImg, 0, x2, width, height);
+  bgImg.resize(width, height);
+  image(bgImg, 0, x1); //<>//
+  image(bgImg, 0, x2); //<>//
+  
+  println(x1);
+  println(x2);
 
   x1 -= 0.5;
   x2 -= 0.5;

@@ -15,12 +15,12 @@ PImage plataforma;
 
 
 void setup(){
-  size(1280, 700);
+  size(700, 1000);
   gc = new GameController();
-  escena = 1;
-  
+  escena = 0;
+  x2 = width;
   bgImg = loadImage("Assets/4.png");
-  myFont = loadFont("Assets/04B_30__.TTF");
+  myFont = createFont("Assets/04B_30__.TTF", 34);
   botoImg = loadImage("Assets/Botó.png");
   plataforma = loadImage("Assets/Plataforma.png");
 }
@@ -33,11 +33,11 @@ void draw(){
 
 void escena(){  
   if (escena == 0) {
-    pantallaInicial(plataforma, bgImg, botoImg, myFont, x1, x2);
+    pantallaInicial();
   }else if (escena == 1) {
     pantallaJoc();
   }else if (escena == 2){
-    pantallaFinal(bgImg, plataforma, botoImg, myFont, x1, x2, this.gc.getScore());
+    pantallaFinal( this.gc.getScore());
   }  
 }
 
