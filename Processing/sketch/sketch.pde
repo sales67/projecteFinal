@@ -12,6 +12,7 @@ float x2;
 PFont myFont;
 PImage botoImg;
 PImage plataforma;
+boolean right,left;
 
 
 void setup(){
@@ -20,7 +21,7 @@ void setup(){
   escena = 1;
   
   bgImg = loadImage("Assets/4.png");
-  myFont = loadFont("Assets/04B_30__.TTF");
+  //myFont = loadFont("Assets/04B_30__.TTF");
   botoImg = loadImage("Assets/Botó.png");
   plataforma = loadImage("Assets/Plataforma.png");
 }
@@ -43,8 +44,24 @@ void escena(){
 
 void keyPressed()
 {
-   if(key == 32)
-   {
+   if(key == 32){
      this.gc.jump();
    }
+   if (keyCode == RIGHT){
+     this.right = true;     
+   }
+   if (keyCode == LEFT){
+     this.left = true;     
+   }
+}
+
+void keyReleased(){
+  if (keyCode == RIGHT){
+    this.right = false;
+  }
+  
+  if (keyCode == LEFT){
+     this.left = false;     
+   }
+  
 }
