@@ -1,6 +1,6 @@
 class Character{
   
-  float x,y;
+  int x,y;
   int size, speedConstant, speed,  jumpForce, maxSpeed;
   boolean jumping, up;
   
@@ -15,10 +15,14 @@ class Character{
     this.maxSpeed = -20;
   }
   
-  void update() {
+  void update(boolean collision) {
     fill(255, 255, 255);
     rect(this.y,this.x,this.size,this.size);
-    this.x += this.speed;
+    if (collision){
+      this.x += this.speedConstant-2;
+    }else{
+      this.x += this.speed;
+    }
     if (jumping){
       jumping();
     }
@@ -40,7 +44,25 @@ class Character{
     }  
     if (this.speed <= this.maxSpeed){  
       this.up = false;
-    }
-    
-  } 
+    }    
+  }
+  
+  void left(){
+    this.y -= 10;
+  }
+  void right(){
+    this.y += 10;
+  }
+  
+  int getSpeed(){
+    return this.speed;
+  }
+  
+  int getX(){
+    return this.x;
+  }
+  
+  int getY(){
+    return this.y;
+  }
 }

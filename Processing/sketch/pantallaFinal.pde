@@ -1,9 +1,9 @@
-void pantallaFinal(PImage bgImg, PImage plataforma, PImage botoImg, PFont myFont, float x1, float x2, int score){
-  backMove(bgImg, x1, x2);
-  plataforma(plataforma);
+void pantallaFinal( int score){
+  backMove();
+  plataforma();
   opacitat();
-  pintarScore(myFont, score);
-  btnFin(botoImg);
+  pintarScore(score);
+  btnFin();
 }
 
 void opacitat(){
@@ -17,16 +17,16 @@ void opacitat(){
   endShape();
 }
 
-void plataforma(PImage plataforma){
+void plataforma( ){
   //Barra gran
   image(plataforma, 0,842, width, 159);
 }
 
-void btnFin(PImage botoImg){
+void btnFin( ){
   image(botoImg, 260, 568, 194, 205);
 }
 
-void pintarScore(PFont myFont, int score) {
+void pintarScore(int score) {
   textFont(myFont);
   textSize(75);
   fill(204, 163, 0);
@@ -43,7 +43,7 @@ void pintarScore(PFont myFont, int score) {
   text("PLAY AGAIN", 106, 495);
 }
 
-void backMove(PImage bgImg, float x1, float x2) {
+void backMove() {
   bgImg.resize(width, height);
   image(bgImg, 0, x1); //<>//
   image(bgImg, 0, x2); //<>//
