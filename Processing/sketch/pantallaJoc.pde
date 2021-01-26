@@ -5,5 +5,4 @@ void pantallaJoc(){
   }else if (this.left){
     this.gc.left();
   }
-  
 }
