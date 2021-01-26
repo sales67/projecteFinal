@@ -62,6 +62,5 @@ void keyReleased(){
   
   if (keyCode == LEFT){
      this.left = false;     
-   }
-  
+   } 
 }
