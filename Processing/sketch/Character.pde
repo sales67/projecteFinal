@@ -3,6 +3,7 @@ class Character{
   int x,y;
   int size, speedConstant, speed,  jumpForce, maxSpeed;
   boolean jumping, up;
+  PImage characterImage;
   
   Character(int speed){
     this.x = 400;
@@ -13,11 +14,11 @@ class Character{
     this.speed = speed;
     this.up = true;
     this.maxSpeed = -20;
+    this.characterImage  = loadImage("Assets/Pingu.png");
   }
   
   void update(boolean collision) {
-    fill(255, 255, 255);
-    rect(this.y,this.x,this.size,this.size);
+    image(this.characterImage, this.y,this.x, this.size*2, this.size*2);
     if (collision){
       this.x += this.speedConstant-2;
     }else{
@@ -49,9 +50,15 @@ class Character{
   
   void left(){
     this.y -= 10;
+    if(this.y < 0){
+      this.y = 700;
+    }
   }
   void right(){
     this.y += 10;
+    if(this.y > 700){
+      this.y = 0;
+    }
   }
   
   int getSpeed(){
@@ -64,5 +71,9 @@ class Character{
   
   int getY(){
     return this.y;
+  }
+  
+  int getSize(){
+    return this.size;
   }
 }

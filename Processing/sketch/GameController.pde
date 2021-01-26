@@ -1,32 +1,33 @@
 class GameController{
   
   int speed = 4;
-  int score;
-  Character c;
+  float score;
+  Character character;
   ArrayList<Platform> platforms;
-  
+  int i;
+  Platform plat;
   GameController(){
-    this.c = new Character(this.speed);
+    this.character = new Character(this.speed);
     this.score = 0;    
     platforms  = new ArrayList<Platform>();
   }
   
   void update(){
     int rand = (int)random(100);
-    this.c.update(collision());
-    this.score++;    
+    this.character.update(collision());
+    this.score += 0.01;    
     
     this.crearPlataformes(rand);
-    this.pintarPlataformes();       
+    this.pintarPlataformes(); 
   }
   
   boolean collision(){
     for(Platform p : platforms){
-      if (this.c.getSpeed() > 0 && 
-          this.c.getX() >= p.getX() - 15 &&
-          this.c.getX() < p.getX()  &&
-          this.c.getY() >= p.getY() -20 &&
-          this.c.getY() < p.getY() + 30){
+      if (this.character.getSpeed() > 0 && 
+          this.character.getX() >= p.getX() - 40 &&
+          this.character.getX() < p.getX()  &&
+          this.character.getY() >= p.getY() -20 &&
+          this.character.getY() < p.getY() + 30){
           return true;
       }
     }
@@ -47,18 +48,22 @@ class GameController{
   }
   
   void jump(){
-   this.c.jump(); 
+   this.character.jump(); 
   }
   
   void left(){
-    this.c.left();
+    this.character.left();
   }
   
   void right(){
-    this.c.right();
+    this.character.right();
   }
   
-  public int getScore(){
+  public float getScore(){
     return this.score;
+  }
+  
+  public Character getCharacter() {
+    return this.character;
   }
 }

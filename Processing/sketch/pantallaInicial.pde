@@ -63,25 +63,3 @@ void textDraw( ) {
   textSize(40);
   text("PRESS", 133, 519);
 }
-
-void backGroundMove( ) {
- bgImg.resize(width, height);
-  image(bgImg, 0, x1);
-  image(bgImg, 0, x2);
-  
-  println(x1);
-  println(x2);
-
-  x1 -= 0.5;
-  x2 -= 0.5;
-  
-  println(x1);
-  println(x2);
-
-  if (x1 < -width) {
-    x1 = width;
-  }
-  if (x2 < -width) {
-    x2 = width;
-  }
-}

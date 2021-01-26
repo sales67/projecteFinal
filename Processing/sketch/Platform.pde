@@ -1,17 +1,18 @@
 class Platform{
   int x,y;
   int size, speed;
+  PImage platImage;
   
   Platform(int speed){
-    this.x = -10;
-    this.y = (int)random(20,1100);
-    this.size = 10;
+    this.x =  -10;
+    this.y = (int)random(20,680);
+    this.size = 20;
     this.speed = speed-2;
+    this.platImage = loadImage("Assets/Plataforma.png");
   }
   
   void update() {
-    fill(255, 255, 255);
-    rect(this.y,this.x,this.size*4,this.size);
+    image(this.platImage, this.y,this.x, this.size *4, this.size);
     this.x += this.speed;
   }
   
@@ -23,4 +24,7 @@ class Platform{
     return this.y;
   }
   
+  int getSize(){
+   return this.size; 
+  }
 }

@@ -1,5 +1,4 @@
-void pantallaFinal( int score){
-  backMove();
+void pantallaFinal( float score){
   plataforma();
   opacitat();
   pintarScore(score);
@@ -26,7 +25,7 @@ void btnFin( ){
   image(botoImg, 260, 568, 194, 205);
 }
 
-void pintarScore(int score) {
+void pintarScore(float score) {
   textFont(myFont);
   textSize(75);
   fill(204, 163, 0);
@@ -41,23 +40,4 @@ void pintarScore(int score) {
   text("SCORE:" + score, 75, 360);
   textSize(65);
   text("PLAY AGAIN", 106, 495);
-}
-
-void backMove() {
-  bgImg.resize(width, height);
-  image(bgImg, 0, x1); //<>//
-  image(bgImg, 0, x2); //<>//
-  
-  println(x1);
-  println(x2);
-
-  x1 -= 0.5;
-  x2 -= 0.5;
-
-  if (x1 < -width) {
-    x1 = width;
-  }
-  if (x2 < -width) {
-    x2 = width;
-  }
 }
