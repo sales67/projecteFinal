@@ -1,9 +1,5 @@
 import java.util.*;
 
-//import apsync.*;
-//import processing.serial.*;
-//import processing.sound.*;
-
 int escena;
 GameController gc;
 PImage bgImg;
@@ -16,43 +12,54 @@ boolean right,left;
 
 
 void setup(){
-  size(1280, 700);
+  size(700, 1000);
   gc = new GameController();
-  escena = 1;
-  
+  escena = 0;
+  x2 = width;
   bgImg = loadImage("Assets/4.png");
-  //myFont = loadFont("Assets/04B_30__.TTF");
+  myFont = createFont("Assets/04B_30__.TTF", 34);
   botoImg = loadImage("Assets/Botó.png");
   plataforma = loadImage("Assets/Plataforma.png");
+  leap = new LeapMotion(this);
 }
 
 
 void draw(){
+  backGroundMove();
    escena();
 }
 
 
 void escena(){  
   if (escena == 0) {
-    pantallaInicial(plataforma, bgImg, botoImg, myFont, x1, x2);
+    pantallaInicial();
   }else if (escena == 1) {
     pantallaJoc();
   }else if (escena == 2){
-    pantallaFinal(bgImg, plataforma, botoImg, myFont, x1, x2, this.gc.getScore());
+    pantallaFinal( this.gc.getScore());
   }  
+  
+  if(this.gc.getCharacter().getX() >= 1000){
+    escena = 2;
+  }
 }
 
 void keyPressed()
 {
-   if(key == 32){
+  if(escena == 0 && key == 32){
+    escena = 1;
+  }else if(escena == 1 && key == 32){
      this.gc.jump();
+     
    }
    if (keyCode == RIGHT){
      this.right = true;     
-   }
-   if (keyCode == LEFT){
-     this.left = true;     
-   }
+     }
+     if (keyCode == LEFT){
+       this.left = true;     
+     }
+   
+
 }
 
 void keyReleased(){
@@ -63,4 +70,20 @@ void keyReleased(){
   if (keyCode == LEFT){
      this.left = false;     
    } 
+}
+
+void backGroundMove( ) {
+ bgImg.resize(width, height);
+  image(bgImg, 0, x1);
+  image(bgImg, 0, x2);
+  
+  x1 -= 0.5;
+  x2 -= 0.5;
+
+  if (x1 < -width) {
+    x1 = width;
+  }
+  if (x2 < -width) {
+    x2 = width;
+  }
 }
