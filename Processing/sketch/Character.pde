@@ -48,14 +48,14 @@ class Character{
     }    
   }
   
-  void left(){
-    this.y -= 10;
+  void left(int movmentSpeed){
+    this.y -= movmentSpeed;
     if(this.y < 0){
       this.y = 700;
     }
   }
-  void right(){
-    this.y += 10;
+  void right(int movmentSpeed){
+    this.y -= movmentSpeed;
     if(this.y > 700){
       this.y = 0;
     }

@@ -20,13 +20,13 @@ void setup(){
   myFont = createFont("Assets/04B_30__.TTF", 34);
   botoImg = loadImage("Assets/Botó.png");
   plataforma = loadImage("Assets/Plataforma.png");
+  leap = new LeapMotion(this);
 }
 
 
 void draw(){
   backGroundMove();
    escena();
-   
 }
 
 

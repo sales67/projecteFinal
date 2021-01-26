@@ -5,6 +5,7 @@ class GameController{
   Character character;
   ArrayList<Platform> platforms;
   int i;
+  
   Platform plat;
   GameController(){
     this.character = new Character(this.speed);
@@ -27,7 +28,7 @@ class GameController{
           this.character.getX() >= p.getX() - 40 &&
           this.character.getX() < p.getX()  &&
           this.character.getY() >= p.getY() -20 &&
-          this.character.getY() < p.getY() + 30){
+          this.character.getY() < p.getY() + 60){
           return true;
       }
     }
@@ -51,12 +52,12 @@ class GameController{
    this.character.jump(); 
   }
   
-  void left(){
-    this.character.left();
+  void left(int movmentSpeed){
+    this.character.left(movmentSpeed);
   }
   
-  void right(){
-    this.character.right();
+  void right(int movmentSpeed){
+    this.character.right(movmentSpeed);
   }
   
   public float getScore(){
