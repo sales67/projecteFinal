@@ -11,6 +11,18 @@ class GameController{
     this.character = new Character(this.speed);
     this.score = 0;    
     platforms  = new ArrayList<Platform>();
+    plataformesInicials();
+  }
+  
+  void plataformesInicials(){
+    this.platforms.add(new Platform(this.speed,100,100));
+    this.platforms.add(new Platform(this.speed,150,250));
+    this.platforms.add(new Platform(this.speed,220,120));
+    this.platforms.add(new Platform(this.speed,400,450));
+    this.platforms.add(new Platform(this.speed,370,380));
+    this.platforms.add(new Platform(this.speed,520,40));
+    this.platforms.add(new Platform(this.speed,445,220));
+    this.platforms.add(new Platform(this.speed,510,600));    
   }
   
   void update(){
@@ -49,7 +61,9 @@ class GameController{
   }
   
   void jump(){
-   this.character.jump(); 
+    if (collision()){
+     this.character.jump();
+    }
   }
   
   void left(int movmentSpeed){
