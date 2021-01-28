@@ -25,18 +25,20 @@ void setup(){
 
 
 void draw(){
-  backGroundMove();
    escena();
 }
 
 
 void escena(){  
   if (escena == 0) {
+    backGroundMove();
     pantallaInicial();
   }else if (escena == 1) {
+    background(bgImg);
     pantallaJoc();
   }else if (escena == 2){
-    pantallaFinal( this.gc.getScore());
+    backGroundMove();
+    pantallaFinal(int(this.gc.getScore()));
   }  
   
   if(this.gc.getCharacter().getX() >= 1000){

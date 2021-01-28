@@ -1,4 +1,4 @@
-void pantallaFinal( float score){
+void pantallaFinal( int score){
   plataforma();
   opacitat();
   pintarScore(score);
@@ -25,7 +25,7 @@ void btnFin( ){
   image(botoImg, 260, 568, 194, 205);
 }
 
-void pintarScore(float score) {
+void pintarScore(int score) {
   textFont(myFont);
   textSize(75);
   fill(204, 163, 0);
@@ -37,7 +37,7 @@ void pintarScore(float score) {
   textSize(75);
   fill(204, 204, 204);
   text("YOU FALL", 127, 232);
-  text("SCORE:" + score, 75, 360);
+  text("SCORE: " + score, 75, 360);
   textSize(65);
   text("PLAY AGAIN", 106, 495);
 }

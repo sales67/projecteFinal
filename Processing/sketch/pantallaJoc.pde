@@ -3,7 +3,7 @@ import de.voidplus.leapmotion.*;
 
 LeapMotion leap;
 int movmentSpeed;
-void pantallaJoc(){  
+void pantallaJoc(){ 
   gc.update();  
   moviment();
   if (this.right){

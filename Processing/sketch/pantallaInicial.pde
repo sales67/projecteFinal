@@ -1,7 +1,6 @@
 
 
 void pantallaInicial(){
-  backGroundMove();
   plataforms();
   opacity();
   textDraw();
