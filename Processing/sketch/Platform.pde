@@ -11,6 +11,14 @@ class Platform{
     this.platImage = loadImage("Assets/Plataforma.png");
   }
   
+  Platform(int speed, int x, int y){
+    this.x =  x;
+    this.y = y;
+    this.size = 20;
+    this.speed = speed-2;
+    this.platImage = loadImage("Assets/Plataforma.png");
+  }
+  
   void update() {
     image(this.platImage, this.y,this.x, this.size *4, this.size);
     this.x += this.speed;
