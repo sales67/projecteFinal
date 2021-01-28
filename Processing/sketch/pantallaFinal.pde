@@ -30,7 +30,7 @@ void pintarScore(int score) {
   textSize(75);
   fill(204, 163, 0);
   text("YOU FALL", 122, 240);
-  text("SCORE:" + score, 63, 370);
+  text("SCORE: " + score, 63, 370);
   textSize(65);
   text("PLAY AGAIN", 98, 505);
   fill(204, 204, 204);
