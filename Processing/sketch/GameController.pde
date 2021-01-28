@@ -30,7 +30,7 @@ class GameController{
   }
   
   void update(){
-    int rand = (int)random(100);
+    int rand = (int)random(20);
     this.character.update(collision());
     this.score += 0.01;    
     

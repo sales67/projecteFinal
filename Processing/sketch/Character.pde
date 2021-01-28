@@ -9,11 +9,11 @@ class Character{
     this.x = 400;
     this.y = 600;
     this.size = 25;
-    this.jumpForce = 2;
+    this.jumpForce = 3;
     this.speedConstant = speed;
     this.speed = speed;
     this.up = true;
-    this.maxSpeed = -20;
+    this.maxSpeed = -25;
     this.characterImage  = loadImage("Assets/Pingu.png");
   }
   
