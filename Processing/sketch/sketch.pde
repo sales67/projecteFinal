@@ -1,5 +1,8 @@
 import java.util.*;
+import processing.sound.*;
 
+SoundFile musicaFons;
+SoundFile jumpSound;
 int escena;
 GameController gc;
 PImage bgImg;
@@ -13,7 +16,8 @@ boolean right,left;
 
 void setup(){
   size(700, 1000);
-  gc = new GameController();
+  jumpSound = new SoundFile(this, "Assets/Jump.mp3");
+  gc = new GameController(jumpSound);
   escena = 0;
   x2 = width;
   bgImg = loadImage("Assets/4.png");
@@ -21,6 +25,8 @@ void setup(){
   botoImg = loadImage("Assets/Botó.png");
   plataforma = loadImage("Assets/Plataforma.png");
   leap = new LeapMotion(this);
+  musicaFons = new SoundFile(this, "Assets/game_music.mp3");
+  musicaFons.play();
 }
 
 
@@ -52,7 +58,8 @@ void keyPressed()
     escena = 1;
   }else if(escena == 1 && key == 32){
      this.gc.jump();
-     
+   }else if(escena == 2 && key == 32){
+    escena = 1; 
    }
    if (keyCode == RIGHT){
      this.right = true;     

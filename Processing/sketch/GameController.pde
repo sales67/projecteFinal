@@ -1,3 +1,5 @@
+import processing.sound.*;
+
 class GameController{
   
   int speed = 4;
@@ -5,13 +7,15 @@ class GameController{
   Character character;
   ArrayList<Platform> platforms;
   int i;
+  SoundFile jumpSound;
   
   Platform plat;
-  GameController(){
+  GameController(SoundFile jump){
     this.character = new Character(this.speed);
     this.score = 0;    
     platforms  = new ArrayList<Platform>();
     plataformesInicials();
+    jumpSound = jump;
   }
   
   void plataformesInicials(){
@@ -62,6 +66,7 @@ class GameController{
   
   void jump(){
     if (collision()){
+      this.jumpSound.play();
      this.character.jump();
     }
   }
